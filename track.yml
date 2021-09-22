@@ -1,0 +1,135 @@
+slug: kubernetes-observability-with-pixie
+id: fkl2bznpy0f6
+type: track
+title: Kubernetes Observability with Pixie
+teaser: Debug issues in your K8s cluster with Pixie
+description: |-
+  ## Overview
+
+  You’re the developer of TinyHat.me, a website and API for putting virtual hats on virtual heads that runs in kubernetes. But TinyHat has big problems. It’s time to instrument your cluster with Pixie and use it to find the source of your users’ frustrations.
+
+  ## Objectives
+
+  - Instrument your kubernetes cluster with New Relic + Pixie
+  - Use PxL scripts in the Live Debugger to gather insights into your cluster’s behaviors
+  - Find the root cause of two bugs in your software
+
+  ## Requirements
+
+  - A free [New Relic account](https://newrelic.com/signup?utm_source=developer-site)
+
+  ## Important Note
+
+  _This track utilizes an ephemeral virtual machine. As a result, finish the entire track in one sitting or you'll lose your progress when time expires._
+icon: https://cdn.instruqt.com/assets/templates/kubernetes.png
+tags: []
+owner: newrelic
+developers:
+- aronquillo@newrelic.com
+private: true
+published: false
+challenges:
+- slug: explore-your-cluster
+  id: zy30xlnit3ex
+  type: challenge
+  title: Explore your kubernetes cluster with Pixie
+  teaser: Explore your kubernetes cluster with Pixie
+  notes:
+  - type: text
+    contents: While you wait, we're spinning up your kubernetes cluster. Take some time to familiarize yourself with the UI.
+  - type: text
+    contents: At the top right, you'll find a timer. Be mindful of the time it shows because if you don't finish this track within the time limit, you'll need to start over again. Don't worry though, we've given you enough time to move at a slow pace.
+  - type: text
+    contents: Some challenges in this lab contain helpful images in the instructions. To resize the images, you can drag the divider between the workspace and the instructions.
+  - type: text
+    contents: When it's ready, click the button at the bottom right of your screen to start the first challenge.
+  assignment: |-
+    Your website, TinyHat.me, runs in kubernetes. In the **Shell** tab, explore your pods:
+
+    ```
+    kubectl get pods
+    ```
+
+    > **Note:** All your pods shound be running by now, but if they're not, give them a few more minutes.
+
+    Here, you can see ten containerized services, each with their own pod:
+
+    - admin
+    - add
+    - moderate
+    - gateway
+    - frontend
+    - upload
+    - gateway
+    - mysql
+    - manipulation
+    - fetch
+
+    Instead of going into detail about these services now, you'll learn about them in context as you walk through the scenarios in this lab.
+
+    Explore your services:
+
+    ```kubctl get services```
+
+    Here, you can see your kubernetes services. Notice that each web service has a corresponding kubernetes service. One of these services is particularly important: frontend-service. This is a NodePort service that you connect to when you view your site.
+
+    ## Try out your site
+
+    1. Switch to the **Frontend** tab to see your application.
+    2. Select a number of hats to display and a hat type
+    3. Select **Hat me**
+
+    Now Bob Ross is wearing the hat(s) that you selected. Cool, right?
+
+    Next, switch to the **Admin** tab and approve the pending hat submissions. It's critical that you moderate hats for your site so users don't upload inapproriate images. TinyHat.me is a family-friendly site!
+  tabs:
+  - title: Shell
+    type: terminal
+    hostname: host
+  - title: Frontend
+    type: service
+    hostname: host
+    path: /
+    port: 30001
+  - title: Admin
+    type: service
+    hostname: host
+    path: /admin?password=ilovecats
+    port: 30001
+  difficulty: basic
+  timelimit: 60000
+- slug: instrument-your-cluster
+  id: bvjygxyhrykv
+  type: challenge
+  title: Instrument your kubernetes cluster with Pixie
+  teaser: Instrument your kubernetes cluster with Pixie
+  notes:
+  - type: text
+    contents: |-
+      Pixie is an open source, state of the art Kubernetes monitoring solution that provides:
+
+      - **Automatic** and **instant** baseline observability of your cluster
+      - Actionable, **code-level** insights of your applications
+  - type: text
+    contents: In minutes, auto-telemetry with Pixie provides dynamic data such as protocol traces, resource metrics, and app metrics from your cluster—without an agent!
+  - type: text
+    contents: With New Relic's Pixie integration, we've simplified this process even more by providing a guided installation of Pixie into your cluster.
+  - type: text
+    contents: If you haven't signed into [New Relic](one.newrelic.com), do that now so you're ready to install Pixie into your cluster.
+  - type: text
+    contents: '**Remember:** To resize the images, you can drag the divider between the workspace and the instructions.'
+  assignment: |-
+    From the **New Relic** tab, open New Relic in an external window. On the right side of the upper navigation bar, click **Add more data**:
+
+    ![Click add more data](https://raw.githubusercontent.com/newrelic-experimental/kubernetes-observability-with-pixie/main/assets/add-more-data.png)
+  tabs:
+  - title: New Relic
+    type: website
+    url: https://one.newrelic.com
+    new_window: true
+  - title: Shell
+    type: terminal
+    hostname: host
+  difficulty: basic
+  timelimit: 60000
+checksum: "6516591359816803697"
