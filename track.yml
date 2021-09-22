@@ -121,7 +121,31 @@ challenges:
   assignment: |-
     From the **New Relic** tab, open New Relic in an external window. On the right side of the upper navigation bar, click **Add more data**:
 
-    ![Click add more data](https://raw.githubusercontent.com/newrelic-experimental/kubernetes-observability-with-pixie/main/assets/add-more-data.png)
+    ![Arrow pointing to the add more data button](https://raw.githubusercontent.com/newrelic-experimental/kubernetes-observability-with-pixie/main/assets/add-more-data.png)
+
+    Click **Guided install**:
+
+    ![Arrow pointing to the guided install button](https://raw.githubusercontent.com/newrelic-experimental/kubernetes-observability-with-pixie/main/assets/guided-install.png)
+
+    Click **Kubernetes** to let New Relic guide you through instrumenting your Kubernetes cluster:
+
+    ![Arrow pointing to the Kubernetes button](https://raw.githubusercontent.com/newrelic-experimental/kubernetes-observability-with-pixie/main/assets/kubernetes-install.png)
+
+    Select your account, name your cluster "tiny-hat", and click **Continue**:
+
+    ![Box highlighting the account and cluster name fields](https://raw.githubusercontent.com/newrelic-experimental/kubernetes-observability-with-pixie/main/assets/account-and-cluster.png)
+
+    Leave the default choices. These provide you with a range of observability features for your cluster. Notably, the default options include "Instant service-level insights, full-body requests, and application profiles through Pixie" which you'll focus on in this lab.
+
+    Click **Continue**:
+
+    ![Box highlighting Pixie instrumentation](https://raw.githubusercontent.com/newrelic-experimental/kubernetes-observability-with-pixie/main/assets/pixie-instrumentation.png)
+
+    In the next screen, you see a command for installing our Kubernetes integration into your cluster.
+
+    Click **Copy command**:
+
+    ![Arrow pointing to the copy command button](https://raw.githubusercontent.com/newrelic-experimental/kubernetes-observability-with-pixie/main/assets/helm.png)
   tabs:
   - title: New Relic
     type: website
@@ -132,4 +156,4 @@ challenges:
     hostname: host
   difficulty: basic
   timelimit: 60000
-checksum: "6516591359816803697"
+checksum: "2740783556653936149"
