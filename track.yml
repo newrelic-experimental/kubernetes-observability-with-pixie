@@ -154,6 +154,37 @@ challenges:
     Click **Copy command**:
 
     ![Arrow pointing to the copy command button](https://raw.githubusercontent.com/newrelic-experimental/kubernetes-observability-with-pixie/main/assets/helm.png)
+
+    Now you're ready to install Pixie into your cluster.
+
+    Switch to the **Shell** tab in your Instruqt workspace and paste the Helm 3 command.
+
+    While you're installing Pixie, switch back to New Relic and click **Continue** to progress your guided installation to the final step. Here, you see a message that says "Listening for data":
+
+    ![New Relic page showing listening for data](https://raw.githubusercontent.com/newrelic-experimental/kubernetes-observability-with-pixie/main/assets/listening.png)
+
+     In a few minutes, your Helm command will complete, showing a message with the name, deployed date, namespace, and more:
+
+    ```
+    NAME: newrelic-bundle
+    LAST DEPLOYED: Thu Sep 23 13:50:24 2021
+    NAMESPACE: newrelic
+    STATUS: deployed
+    REVISION: 1
+    TEST SUITE: None
+    ```
+
+    And soon after that, the New Relic page will update to tell you that we're receiving data from your cluster:
+
+    ![New Relic page showing a successful install](https://raw.githubusercontent.com/newrelic-experimental/kubernetes-observability-with-pixie/main/assets/successful-install.png)
+
+    Click **Kubernetes cluster explorer** to see your nodes, pods, deployments and a host of other data about your cluster, all in one view:
+
+    ![New Relic cluster explorer](https://raw.githubusercontent.com/newrelic-experimental/kubernetes-observability-with-pixie/main/assets/successful-install.png)
+
+    Notice that you didn't have to install language-specific agents or specify hardly any data about your cluster during installation. Pixie was able to do figure it all out in minutes! On top of all the data you see in the cluster explorer, click a pod or a node to dig deeper and see just how granular Pixie was able to access near-instantly:
+
+    ![Pod data collected by Pixie](https://raw.githubusercontent.com/newrelic-experimental/kubernetes-observability-with-pixie/main/assets/pod-data.png)
   tabs:
   - title: New Relic
     type: website
@@ -164,4 +195,4 @@ challenges:
     hostname: host
   difficulty: basic
   timelimit: 60000
-checksum: "14975544963442327202"
+checksum: "9310405864384399963"
