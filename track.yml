@@ -36,28 +36,28 @@ challenges:
   teaser: Explore your kubernetes cluster with Pixie
   notes:
   - type: text
-    contents: While you wait, we're spinning up your kubernetes cluster. Take some time to familiarize yourself with the UI.
+    contents: While you wait, we're spinning up your kubernetes cluster. Take this time to learn about the Instruqt UI.
   - type: text
-    contents: At the top right, you'll find a timer. Be mindful of the time it shows because if you don't finish this track within the time limit, you'll need to start over again. Don't worry though, we've given you enough time to move at a slow pace.
+    contents: At the top right of each challenge, you'll find a timer. Be mindful of the time it shows because if you don't finish this track within the time limit, you'll need to start over again. Don't worry though, we've given you a lot of margin in case you want to move at a slower pace.
   - type: text
     contents: Some challenges in this lab contain helpful images in the instructions. To resize the images, you can drag the divider between the workspace and the instructions.
   - type: text
     contents: When it's ready, click the button at the bottom right of your screen to start the first challenge.
   assignment: |-
-    Your website, TinyHat.me, runs in kubernetes. In the **Shell** tab, explore your pods:
+    Your website, TinyHat.me, runs in kubernetes. In the **Shell** tab, explore the pods that make up your application:
 
     ```
     kubectl get pods
     ```
 
-    > **Note:** All your pods shound be running by now, but if they're not, give them a few more minutes.
+    > **Note:** All your pods should be running by now, but if they're not, give them a few more minutes.
 
     Here, you can see ten containerized services, each with their own pod:
 
     - admin
     - add
     - moderate
-    - gateway
+    - svclb-gateway
     - frontend
     - upload
     - gateway
@@ -65,23 +65,27 @@ challenges:
     - manipulation
     - fetch
 
-    Instead of going into detail about these services now, you'll learn about them in context as you walk through the scenarios in this lab.
+    Instead of going into detail about these services now, you'll learn about them in context as you walk through this lab's scenarios.
 
-    Explore your services:
+    Explore your services next:
 
-    ```kubctl get services```
+    ```
+    kubectl get services
+    ```
 
-    Here, you can see your kubernetes services. Notice that each web service has a corresponding kubernetes service. One of these services is particularly important: frontend-service. This is a NodePort service that you connect to when you view your site.
+    Here, you can see your kubernetes services. Notice that most of your app services has a corresponding kubernetes service. One of these services is particularly important: frontend-service. This is a NodePort service that you connect to when you view your site.
 
     ## Try out your site
 
-    1. Switch to the **Frontend** tab to see your application.
+    1. Switch to the **Frontend** tab to see your application
     2. Select a number of hats to display and a hat type
-    3. Select **Hat me**
+    3. Select **Hat Me**
 
     Now Bob Ross is wearing the hat(s) that you selected. Cool, right?
 
-    Next, switch to the **Admin** tab and approve the pending hat submissions. It's critical that you moderate hats for your site so users don't upload inapproriate images. TinyHat.me is a family-friendly site!
+    Switch to the **Admin** tab and approve the pending hat submissions. For each one, you're redirected to a new tab or window with a successful JSON response.
+
+    It's critical that you moderate hats for your site so users don't upload inapproriate images. TinyHat.me is a family-friendly site, after all!
   tabs:
   - title: Shell
     type: terminal
@@ -131,6 +135,10 @@ challenges:
 
     ![Arrow pointing to the Kubernetes button](https://raw.githubusercontent.com/newrelic-experimental/kubernetes-observability-with-pixie/main/assets/kubernetes-install.png)
 
+    Click **Begin installation**:
+
+    ![Arrow pointing to the begin installation button](https://raw.githubusercontent.com/newrelic-experimental/kubernetes-observability-with-pixie/main/assets/begin-installation.png)
+
     Select your account, name your cluster "tiny-hat", and click **Continue**:
 
     ![Box highlighting the account and cluster name fields](https://raw.githubusercontent.com/newrelic-experimental/kubernetes-observability-with-pixie/main/assets/account-and-cluster.png)
@@ -156,4 +164,4 @@ challenges:
     hostname: host
   difficulty: basic
   timelimit: 60000
-checksum: "2740783556653936149"
+checksum: "14975544963442327202"
