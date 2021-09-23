@@ -101,7 +101,7 @@ challenges:
     path: /admin?password=ilovecats
     port: 30001
   difficulty: basic
-  timelimit: 60000
+  timelimit: 30000
 - slug: instrument-your-cluster
   id: bvjygxyhrykv
   type: challenge
@@ -182,7 +182,7 @@ challenges:
 
     ![New Relic cluster explorer](https://raw.githubusercontent.com/newrelic-experimental/kubernetes-observability-with-pixie/main/assets/successful-install.png)
 
-    Notice that you didn't have to install language-specific agents or specify hardly any data about your cluster during installation. Pixie was able to do figure it all out in minutes! On top of all the data you see in the cluster explorer, click a pod or a node to dig deeper and see just how granular Pixie was able to access near-instantly:
+    Remember that you didn't have to install language-specific agents or specify hardly any data about your cluster during installation. Pixie was able to do figure it all out in minutes! On top of all the data you see in the cluster explorer, click a pod or a node to dig deeper and see just how granular Pixie was able to access near-instantly:
 
     ![Pod data collected by Pixie](https://raw.githubusercontent.com/newrelic-experimental/kubernetes-observability-with-pixie/main/assets/pod-data.png)
   tabs:
@@ -194,5 +194,31 @@ challenges:
     type: terminal
     hostname: host
   difficulty: basic
-  timelimit: 60000
-checksum: "9310405864384399963"
+  timelimit: 30000
+- slug: scenario-1
+  id: xrcjz9p5pnyw
+  type: challenge
+  title: Debug 404s in your service
+  teaser: Figure out why users get 404s when trying to apply a hat.
+  notes:
+  - type: text
+    contents: |-
+      Uh oh! You look on social media and see some confused customers:
+
+      ![A Twitter thread showing some users can't access a hat](https://raw.githubusercontent.com/newrelic-experimental/kubernetes-observability-with-pixie/main/assets/scenario-1-twitter.png)
+
+      What's wrong with TinyHat.me? Use Pixie to find out.
+  - type: text
+    contents: Please wait while we simulate a bug in your cluster. This should take about three minutes.
+  assignment: Figure it out!
+  tabs:
+  - title: New Relic
+    type: website
+    url: https://one.newrelic.com
+    new_window: true
+  - title: Shell
+    type: terminal
+    hostname: host
+  difficulty: basic
+  timelimit: 30000
+checksum: "917934588013055734"
