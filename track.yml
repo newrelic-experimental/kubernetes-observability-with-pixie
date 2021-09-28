@@ -36,7 +36,7 @@ challenges:
   teaser: Explore your kubernetes cluster with Pixie
   notes:
   - type: text
-    contents: While you wait, we're spinning up your kubernetes cluster. Take this time to learn about the Instruqt UI.
+    contents: While you wait, we're spinning up your kubernetes cluster. Take this time to learn about the lab user interface.
   - type: text
     contents: At the top right of each challenge, you'll find a timer. Be mindful of the time it shows because if you don't finish this track within the time limit, you'll need to start over again. Don't worry though, we've given you a lot of margin in case you want to move at a slower pace.
   - type: text
@@ -44,7 +44,7 @@ challenges:
   - type: text
     contents: When it's ready, click the button at the bottom right of your screen to start the first challenge.
   assignment: |-
-    Your website, TinyHat.me, runs in kubernetes. In the **Shell** tab, explore the pods that make up your application:
+    Your website, TinyHat.me, runs in kubernetes. In the **Shell** tab, view the pods that make up your application:
 
     ```
     kubectl get pods
@@ -67,13 +67,13 @@ challenges:
 
     Instead of going into detail about these services now, you'll learn about them in context as you walk through this lab's scenarios.
 
-    Explore your services next:
+    View your services next:
 
     ```
     kubectl get services
     ```
 
-    Here, you can see your kubernetes services. Notice that most of your app services has a corresponding kubernetes service. One of these services is particularly important: frontend-service. This is a NodePort service that you connect to when you view your site.
+    Here, you can see your kubernetes services. Notice that most of your app services have a corresponding kubernetes service. One of these services is particularly important: **frontend-service**. This is a NodePort service that you connect to when you view your site.
 
     ## Try out your site
 
@@ -180,9 +180,9 @@ challenges:
 
     Click **Kubernetes cluster explorer** to see your nodes, pods, deployments and a host of other data about your cluster, all in one view:
 
-    ![New Relic cluster explorer](https://raw.githubusercontent.com/newrelic-experimental/kubernetes-observability-with-pixie/main/assets/successful-install.png)
+    ![New Relic cluster explorer](https://raw.githubusercontent.com/newrelic-experimental/kubernetes-observability-with-pixie/main/assets/cluster-explorer.png)
 
-    Remember that you didn't have to install language-specific agents or specify hardly any data about your cluster during installation. Pixie was able to do figure it all out in minutes! On top of all the data you see in the cluster explorer, click a pod or a node to dig deeper and see just how granular Pixie was able to access near-instantly:
+    Remember that you didn't have to install language-specific agents or specify hardly any data about your cluster during installation. Pixie was able to do figure it all out in minutes! On top of all the data you see in the cluster explorer, click a pod or a node to dig deeper and see the granular data that Pixie was able to access near-instantly:
 
     ![Pod data collected by Pixie](https://raw.githubusercontent.com/newrelic-experimental/kubernetes-observability-with-pixie/main/assets/pod-data.png)
   tabs:
@@ -216,9 +216,14 @@ challenges:
     type: website
     url: https://one.newrelic.com
     new_window: true
+  - title: Frontend
+    type: service
+    hostname: host
+    path: /
+    port: 30001
   - title: Shell
     type: terminal
     hostname: host
   difficulty: basic
   timelimit: 30000
-checksum: "917934588013055734"
+checksum: "1868709474928183651"
