@@ -406,11 +406,6 @@ data:
     INSERT INTO images VALUES (27, 'xff8x5s2icgckekt', 'https://tinyhats.s3.amazonaws.com/xff8x5s2icgckekt.png', 'xff8x5s2icgckekt.png', 'st-patricks', 'true');
     INSERT INTO images VALUES (28, 'alcj03xqojezuu1u', 'https://tinyhats.s3.amazonaws.com/alcj03xqojezuu1u.png', 'alcj03xqojezuu1u.png', 'shark', 'true');
     INSERT INTO images VALUES (31, '8tg4u10knvn9jq1w', 'https://tinyhats.s3.amazonaws.com/8tg4u10knvn9jq1w.png', '8tg4u10knvn9jq1w.png', 'alien', 'true');
-    INSERT INTO images VALUES (32, 'pn6s373r2bdeql2f', 'https://tinyhats.s3.amazonaws.com/pn6s373r2bdeql2f.png', 'pn6s373r2bdeql2f.png', 'penguin', 'true');
-    INSERT INTO images VALUES (33, 'jx9mr1zt4fip0b90', 'https://tinyhats.s3.amazonaws.com/jx9mr1zt4fip0b90.png', 'jx9mr1zt4fip0b90.png', 'tinyhat', 'true');
-    INSERT INTO images VALUES (37, '8wc1m6wkr3uelnnq', 'https://tinyhats.s3.amazonaws.com/8wc1m6wkr3uelnnq.png', '8wc1m6wkr3uelnnq.png', 'cat-ears', 'true');
-    INSERT INTO images VALUES (65, '124626ixbtm5qz8u', 'https://tinyhats.s3.amazonaws.com/124626ixbtm5qz8u.png', '124626ixbtm5qz8u.png', 'spicy', 'false');
-    INSERT INTO images VALUES (100, 'faznhokg9hvaz76p', 'https://tinyhats.s3.amazonaws.com/faznhokg9hvaz76p.png', 'faznhokg9hvaz76p.png', 'food', 'false');
     GRANT ALL PRIVILEGES
     ON main.images
     TO 'admin'@'%'

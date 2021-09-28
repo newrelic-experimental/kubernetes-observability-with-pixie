@@ -205,7 +205,9 @@ challenges:
     contents: |-
       Uh oh! You look on social media and see some confused customers:
 
-      ![A Twitter thread showing some users can't access a hat](https://raw.githubusercontent.com/newrelic-experimental/kubernetes-observability-with-pixie/main/assets/scenario-1-twitter.png)
+      <p align="center">
+        <img src="https://raw.githubusercontent.com/newrelic-experimental/kubernetes-observability-with-pixie/main/assets/scenario-1-twitter.png" alt="A Twitter thread showing some users can't access a hat"/>
+      </p>
 
       What's wrong with TinyHat.me? Use Pixie to find out.
   - type: text
@@ -226,4 +228,4 @@ challenges:
     hostname: host
   difficulty: basic
   timelimit: 30000
-checksum: "1868709474928183651"
+checksum: "921237624107173036"
