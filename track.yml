@@ -212,7 +212,97 @@ challenges:
       What's wrong with TinyHat.me? Use Pixie to find out.
   - type: text
     contents: Please wait while we simulate a bug in your cluster. This should take about three minutes.
-  assignment: Figure it out!
+  assignment: |-
+    ## Reproduce the issue
+
+    You've been notified by your users that users can't see a particular hat on TinyHat.me. Before you debug the issue, switch to the **Frontend** tab to reproduce it for yourself.
+
+    The hat that users are supposedly having trouble with is called "PIXIE". Choose it from the hat selector. Also choose 1 from the hat number selector. Then, click **Hat me**.
+
+    The loader spins for a while and results in a blank screen with no Bob Ross and no hat.
+
+    > **Note:** The number of hats you choose to display has no effect on the result.
+
+    If you do this again with your browser's console open, you'll see that the request to `/api/hat?number=1` responds with an undefined image url. So, when the image tries to load the image, it fails:
+
+    The bad news is that you've confirmed there's an error in your application. The good news is that you recently instrumented your cluster with Pixie! Switch to the New Relic tab and sign into your account, if you haven't already.
+
+    ## Debug your cluster
+
+    From the New Relic homepage, go to **Kubernetes**:
+
+    Click your cluster:
+
+    Click **Live Debugging with Pixie**:
+
+    This is Pixie's live, code-level debugger. You use it to drill down and learn more about the services in your cluster.
+
+    Notice the **script** dropdown menu at the top of the debugger:
+
+    Pixie's live debugger renders data based on open source scripts writtin in PxL, a proprietary scripting language. The default script is `px/cluster`, which shows cluster-level information including:
+
+    - A service graph
+    - Nodes
+    - Namespaces
+    - Services
+    - Pods
+
+    Scroll down to see the error rates for your services:
+
+    Yikes! You have three services returning a lot of errors:
+
+    - fetch-service
+    - frontend-service
+    - gateway-service
+
+    You know that the website lives at frontend-service. You can reasonably rule this out as the culprit because you know it renders other hats just fine.
+
+    To decide which service to look at first, scroll back up to the service graph:
+
+    Here, you see that the frontend-service requests data from gateway-service. In turn, gateway-service requests data from fetch-service. Knowing this, gateway-service is a logical step forward.
+
+    Double click the gateway-service in your service graph to see more about that service:
+
+    Notice that Pixie's live debugger has seamlessly replaced cluster data with service data by changing the script:
+
+    You're now using the `px/service` script filtered down to `default/gateway-service`. In this service, you see a graph with the errors, but not much about where those errors are coming from.
+
+    Switch to the `px/service_stats` script, targeting `default/gateway-service`:
+
+    This give a better picture of the errors in your service.
+
+    Scroll down to the **Incoming Traffic** and **Outgoing Traffic** tables:
+
+    Notice that the gateway service is returning the same amount of errors on inbound requests as it's receiving from outbound requests to the fetch service. This is a good indicator that you need to look at what's happening upstream.
+
+    Switch to the `px/http_data_filtered` script, targeting `default/fetch-service` and requests with a 400 response status code:
+
+    > **Note:** If you don't see any rows, switch back to the **Frontend** tab and try to render the PIXIE hat again a few times.
+
+    Click on the row to learn more about requests to the fetch service that result in errors:
+
+    Here, you see that the request path looks like `/fetch?style=PIXIE&number=1`. This looks right, because the hat style you chose is called `PIXIE`. So if the fetch service is still returning 400s, something wrong is happening when it tries to find the hat.
+
+    Switch to the `px/mysql_data` script and add a source filter for `default/fetch-service`:
+
+    Uh oh! These queries aren't returning any results. Click on one and look at the `req_body` to see the query:
+
+    ```
+    SELECT * FROM main.images WHERE BINARY description='pixie' AND approve='true'
+    ```
+
+    There's the problem! The `BINARY` effectively makes the `WHERE` condition case sensitive. Since the hat's style is called `PIXIE`, this condition fails to find it.
+
+    ## Summary
+
+    To recap, you observed an error in your application and used Pixie in New Relic to:
+
+    1. Understand your services' relationships
+    2. Review the error percentages for each of your services
+    3. Look at individual response bodies
+    4. Find a semantic error in a query within one of those services
+
+    And you didn't even need to individually install agents in any of your services. Pixie was able to deliver all the information you needed!
   tabs:
   - title: New Relic
     type: website
@@ -228,4 +318,4 @@ challenges:
     hostname: host
   difficulty: basic
   timelimit: 30000
-checksum: "921237624107173036"
+checksum: "1841109953837975036"
